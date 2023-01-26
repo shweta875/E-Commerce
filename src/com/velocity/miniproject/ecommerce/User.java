@@ -42,11 +42,11 @@ public class User {
 			
 			Scanner sc=new Scanner(System.in);
 			System.out.println("Enter the user name");
-			String userName=sc.next();
+			String userName=sc.nextLine();
 			System.out.println("Enter the user ID");
-			String userId=sc.next();
+			String userId=sc.nextLine();
 			System.out.println("Enter the user Password");
-			String userPassword=sc.next();
+			String userPassword=sc.nextLine();
 			System.out.println("Enter the user Address");
 			String userAddress=sc.next();
 			System.out.println("Enter the user Number");
