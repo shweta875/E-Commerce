@@ -1,4 +1,4 @@
-package com.velocity.miniproject.ecommerrce;
+package com.velocity.miniproject.ecommerce;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +9,7 @@ public class User {
 	PreparedStatement prs=null;
 	Connection con=null;
 	String ps1;
+	
 	public void user_regestration(String userId,String userName,String userPassword,String userAddress,String userNumber) {
 		DataBaseConnection dataconnection=new DataBaseConnection();
 		
@@ -50,6 +51,7 @@ public class User {
 			String userAddress=sc.next();
 			System.out.println("Enter the user Number");
 			String userNumber=sc.next();
+			user_regestration(userId,userName,userPassword, userAddress,userNumber);
 			
 		
 			System.out.println("registeration successfully done....");
@@ -79,7 +81,7 @@ public class User {
 				
 				while(rs.next())
 				{
-					 ps1=rs.getString(3);
+					 ps1=rs.getString(1);
 					 System.out.println(ps1);
 					 System.out.println("ps1");
 				}

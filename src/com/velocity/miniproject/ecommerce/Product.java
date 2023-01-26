@@ -1,5 +1,9 @@
 package com.velocity.miniproject.ecommerce;
 
-public class DataSupply {
+public class Product {
+
+	
+
+
 
 }
