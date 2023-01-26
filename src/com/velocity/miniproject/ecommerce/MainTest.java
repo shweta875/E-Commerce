@@ -16,6 +16,7 @@ public class MainTest {
     	int select =sc.nextInt();
     	 User u =new User();
     	 Product p=new Product();
+    	 ShoppingCart shc=new ShoppingCart();
     	 Admin a=new Admin();
          switch(select) {
          case 1:
@@ -23,6 +24,7 @@ public class MainTest {
          case 2:
         	 u.doLogin();
         	 p.getPoductlist();
+        	 
         	 break;
          case 3:
         	 a.adminLogin();
