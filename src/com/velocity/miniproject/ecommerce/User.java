@@ -1,4 +1,4 @@
-package com.velocity.miniproject.ecommerce;
+package com.velocity.miniproject.ecommerrce;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,15 +8,15 @@ import java.util.Scanner;
 public class User {
 	PreparedStatement prs=null;
 	Connection con=null;
-	
-	public String user_regestration(String userId,String userName,String userPassword,String userAddress,String userNumber) {
+	String ps1;
+	public void user_regestration(String userId,String userName,String userPassword,String userAddress,String userNumber) {
 		DataBaseConnection dataconnection=new DataBaseConnection();
 		
 		try {
 			
 			con=dataconnection.getConnectionDetails();
 			prs=con.prepareStatement("insert into regestered_user(user_id,user_name,user_password,user_address,user_number)"
-					+ "                 values(?,?,?,?,?)");
+					+ " values(?,?,?,?,?)");
 			prs.setString(1, userId);
 			prs.setString(2, userName);
 			prs.setString(3, userPassword);
@@ -26,23 +26,14 @@ public class User {
 			int i=prs.executeUpdate();
 			System.out.println("Regestration Successfull..."+i);
 			
-			prs=con.prepareStatement("Select user_password from regestered_user where user_id=? ");
-			prs.setString(1, userId);
-			        ResultSet rs= prs.executeQuery();
-			        while(rs.next()) {
-			        	userPassword=rs.getString(3);
-			        	
-			        	
-			        	
-			        }con.close();
-			        prs.close();
-			        rs.close();
-			        
-			
-		} catch (Exception e) {
+			con.close();
+	        prs.close();
+	      }
+		            
+		 catch (Exception e) {
 			e.printStackTrace();
 		}
-	return userPassword;	
+	//return userPassword;	
 	
 	}
 		
@@ -60,9 +51,52 @@ public class User {
 			System.out.println("Enter the user Number");
 			String userNumber=sc.next();
 			
+		
+			System.out.println("registeration successfully done....");
 			
-			String x=user_regestration(userName, userId, userPassword, userAddress, userNumber);
-			System.out.println(x);
 			}
+		
+		public void doLogin() {
+			
+			
+			DataBaseConnection dataconnection=new DataBaseConnection();
+			System.out.println("please enter login details");
+			Scanner sc1=new Scanner(System.in);
+			System.out.println("enter your existing userId ");
+			String userId=sc1.next();
+			System.out.println("Enter the user Password");
+			String ps=sc1.next();
+		
+	
+			//System.out.println("if already exist enter registered userid and password");
+			try {
+				con=dataconnection.getConnectionDetails();
+				prs=con.prepareStatement("select user_password from regestered_user where user_id=?");
+				prs.setString(1, userId);
+			
+				ResultSet rs=prs.executeQuery();
+				String ps1 =" ";
+				
+				while(rs.next())
+				{
+					 ps1=rs.getString(3);
+					 System.out.println(ps1);
+					 System.out.println("ps1");
+				}
+				
+				if(ps1.equalsIgnoreCase(ps))
+				{
+					System.out.println("login successfull....");
+				}
+				else {
+					System.out.println("enter correct password");
+				}
+			
+					
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+			
+		}
 
 }
