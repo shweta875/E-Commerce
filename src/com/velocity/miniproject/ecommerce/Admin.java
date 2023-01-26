@@ -46,13 +46,15 @@ public class Admin {
 					System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));
 					
 				}
-	 			con.close();
+				con.close();
 	 	        prs.close();
+	 			
 	 	      }
 	 		            
 	 		 catch (Exception e) {
 	 			e.printStackTrace();
 	 		}
+	 		
 	    	 
 	     }
 	     
