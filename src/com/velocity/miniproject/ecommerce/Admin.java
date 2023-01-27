@@ -68,10 +68,10 @@ public class Admin {
 			 DataBaseConnection dataconnection=new DataBaseConnection();
 				con=dataconnection.getConnectionDetails();
 		        try {
-					prs=con.prepareStatement("select product_id,product_price,product_quantity, total" + 
+					prs=con.prepareStatement("select product_id,product_price,product_quantity,total" + 
 							"from purchaced_product" + 
-							"where user_name=?");
-					prs.setString(1,name1 );
+							"where (user_name=?)");
+					prs.setString(1,name1);
 					ResultSet rs=prs.executeQuery();
 				       while(rs.next())
 					{
