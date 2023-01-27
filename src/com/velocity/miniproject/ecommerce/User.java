@@ -3,13 +3,20 @@ package com.velocity.miniproject.ecommerce;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class User {
 	PreparedStatement prs=null;
 	Connection con=null;
 	String ps1;
+	String userId;
 	
+
+	
+	
+	
+
 	public void user_regestration(String userId,String userName,String userPassword,String userAddress,String userNumber) {
 		DataBaseConnection dataconnection=new DataBaseConnection();
 		
@@ -35,7 +42,7 @@ public class User {
 		 catch (Exception e) {
 			e.printStackTrace();
 		}
-	//return userPassword;	
+		
 	
 	}
 		
@@ -45,7 +52,7 @@ public class User {
 			System.out.println("Enter the user name");
 			String userName=sc.nextLine();
 			System.out.println("Enter the user ID");
-			String userId=sc.nextLine();
+			String  userId=sc.nextLine();
 			System.out.println("Enter the user Password");
 			String userPassword=sc.nextLine();
 			System.out.println("Enter the user Address");
@@ -56,6 +63,7 @@ public class User {
 			
 		
 			System.out.println("registeration successfully done....");
+		
 			
 			}
 		
@@ -66,10 +74,11 @@ public class User {
 			System.out.println("please enter login details");
 			Scanner sc1=new Scanner(System.in);
 			System.out.println("enter your existing userId ");
-			String userId=sc1.next();
+			String userid=sc1.next();
 			System.out.println("Enter the user Password");
 			String ps=sc1.next();
-		
+			this.userId=userid;
+		      
 	
 			//System.out.println("if already exist enter registered userid and password");
 			try {
@@ -101,5 +110,7 @@ public class User {
 			}
 			
 		}
+		
 
 }
+

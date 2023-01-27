@@ -8,27 +8,34 @@ public class MainTest {
 	    public void continueShopping() {
 	    	
 	    	ShoppingCart shopCart=new ShoppingCart();
-	   
+	   User u=new User();
 	    	 System.out.println("Do you want any product from above list");
         	 System.out.println("Enter 'YES' for continue shopping");
         	 System.out.println("Otherwise 'No'");
         	 Scanner sc1=new Scanner(System.in);
         	 String wish=sc1.next();
         if(wish.equalsIgnoreCase("yes")) {
-            
+            System.out.println("please enter your name");
+            String s=sc1.next();
           Product p1 = shopCart.doshopping();
+             shopCart.storeHistory(s);
+             shopCart.update_qty();
            grant_total=grant_total+p1.total;
          continueShopping();
-	    }else {
-	    	
+	    }else if(wish.equalsIgnoreCase("no")){
 	    	System.out.println("Grand Total"+grant_total);
 	    	System.out.println("Thank u visit again");
+	    }else {
+        System.out.println("enter correct option,m, ");
+    	continueShopping();
+	    	
 	    	
 	    }
 	    }
 	   
 
     public static void main(String[] args) {
+    	
     	System.out.println("*******Welcome to MyStore Electronics**********");
     	
     	System.out.println("~please do registration to enter in Mystore's  world~");
@@ -70,7 +77,11 @@ public class MainTest {
          		 int productid=sc.nextInt();
          		 p.getProductQuantity(productid);
          	 }else if(select1==3) {
-         		 System.out.println("user history");
+         		 System.out.println("enter name of user");
+         		String name= sc.next();
+         		a.getUserHistory(name);
+         		
+      
          	 }
         	 break;
         	 

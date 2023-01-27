@@ -51,7 +51,7 @@ public class ShoppingCart {
 
 	public int calculate_Qty() {
 		ShoppingCart shopCart=new ShoppingCart();
-	     Product p1	=shopCart.doshopping();
+	     
 	     int store_qty=0;
 	     int remain_qty=0;
 	     DataBaseConnection dataconnection=new DataBaseConnection();
@@ -78,29 +78,48 @@ public class ShoppingCart {
 	             return remain_qty;
 		
 		}
-	
-	   public void storeHistory() {
-		  Product p1=doshopping();
+	 public void storeHistory(String user ) {
+		   
 		  DataBaseConnection dataconnection=new DataBaseConnection();
 			con=dataconnection.getConnectionDetails();
-	        try {
-				prs=con.prepareStatement("insert");
+			try {
+				prs=con.prepareStatement("insert into purchaced_product(user_name,product_id,product_price,product_quantity, total) values(?,?,?,?,?)");
 				
-			       
-			} catch (SQLException e) {
+				prs.setString(1,user);
+				prs.setInt(2,p1.productId);
+				prs.setInt(3,p1.price );
+				prs.setInt(4,p1.quantity);
+               prs.setInt(5, p1.total);				
+				
+				prs.execute();
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		}
+	 public void update_qty() {
+		 int qty=calculate_Qty();
+		 
+	     DataBaseConnection dataconnection=new DataBaseConnection();
+			con=dataconnection.getConnectionDetails();
+	        try {
+				prs=con.prepareStatement("update productlist set quantity=? where product_id=?");
+				prs.setInt(1,qty);
+				prs.setInt(2,p1.productId);
+				prs.execute();
+			      
+			      } catch (SQLException e) {
 				// TODO Auto-generated catch bloc
 				e.printStackTrace();
 			}
-		  
-	   }
-	  
-	
-	  
-	  
-	  
-	  
-	  
-  }
+	 }
+	 
+	 
+	 
+	 
+}
 	 
 
 

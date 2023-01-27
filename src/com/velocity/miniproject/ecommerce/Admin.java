@@ -3,6 +3,7 @@ package com.velocity.miniproject.ecommerce;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Admin {
@@ -53,10 +54,42 @@ public class Admin {
 	 		            
 	 		 catch (Exception e) {
 	 			e.printStackTrace();
-	 		}
+	 		}                               
 	 		
-	    	 
-	     }
+	 		}
+	   
+
+
+
+
+		public void getUserHistory(String name1) {
+			 PreparedStatement prs=null;
+	    		Connection con=null;
+			 DataBaseConnection dataconnection=new DataBaseConnection();
+				con=dataconnection.getConnectionDetails();
+		        try {
+					prs=con.prepareStatement("select product_id,product_price,product_quantity, total" + 
+							"from purchaced_product" + 
+							"where user_name=?");
+					prs.setString(1,name1 );
+					ResultSet rs=prs.executeQuery();
+				       while(rs.next())
+					{
+						System.out.println(rs.getInt(1)+"  "+rs.getInt(2)+"  "+rs.getInt(3)+"  "+rs.getInt(4)); 
+					}
+				       
+					 
+				       
+				      
+				       
+				       
+				} catch (SQLException e) {
+					// TODO Auto-generated catch bloc
+					e.printStackTrace();
+				}
+			
+		}
+	 		
 	     
 
 	
