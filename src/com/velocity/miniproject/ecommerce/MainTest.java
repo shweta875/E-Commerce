@@ -17,16 +17,16 @@ public class MainTest {
 		if (wish.equalsIgnoreCase("yes")) {
 			System.out.println("please enter your name");
 			String s = sc1.next();
-			Product p1 = shopCart.doshopping();
-			shopCart.storeHistory(s);
-			shopCart.update_qty();
+			Product p1 = shopCart.doshopping();  //method call for calculating total price
+			shopCart.storeHistory(s); //method call to store user history
+			shopCart.update_qty();// method to update quantity of product after purchase
 			grant_total = grant_total + p1.total;
 			continueShopping();
 		} else if (wish.equalsIgnoreCase("no")) {
 			System.out.println("Grand Total" + grant_total);
 			System.out.println("Thank u visit again");
 		} else {
-			System.out.println("enter correct option,m, ");
+			System.out.println("enter correct option ");
 			continueShopping();
 
 		}
@@ -48,16 +48,17 @@ public class MainTest {
 		ShoppingCart shc = new ShoppingCart();
 		MainTest mt = new MainTest();
 		Admin a = new Admin();
+
 		switch (select) {
-		case 1:
+		case 1: // press 1 for registration
 			u.userInput();
 		case 2:
-			u.doLogin();
-			p.getPoductlist();
-			mt.continueShopping();
+			u.doLogin(); // press 2 for user login
+			p.getPoductlist(); // to show product list to user
+			mt.continueShopping(); // method call for shopping
 
 			break;
-		case 3:
+		case 3: // press 3 for admin
 			a.adminLogin();
 			System.out.println(" Enter 1 => To get Registered user list");
 			System.out.println(" Enter 2 => to get quantity of product ");

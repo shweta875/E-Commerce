@@ -29,7 +29,7 @@ public class User {
 			prs.setString(5, userNumber);
 
 			int i = prs.executeUpdate();
-			System.out.println("Regestration Successfull..." + i);
+			System.out.println("Regestration Successfull..");
 
 			con.close();
 			prs.close();
