@@ -23,6 +23,7 @@ public class User {
 			prs.setString(3, userPassword);
 			prs.setString(4, userAddress);
 			prs.setString(5, userNumber);
+		
 			
 			int i=prs.executeUpdate();
 			System.out.println("Regestration Successfull..."+i);

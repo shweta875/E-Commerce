@@ -8,10 +8,49 @@ import java.util.Scanner;
 
 
 public class Product {
+	
+	int productId ;
+	int price;
+	int quantity;
+	int total;
+	
+	
 	PreparedStatement prs=null;
 	Connection con=null;
+	
+
+	public Product(int productId, int price, int quantity,int total) {
+		super();
+		this.productId = productId;
+		this.price = price;
+		this.quantity = quantity;
+		this.total= total;
+	}
+	
+
+	
+
+
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", price=" + price + ", quantity=" + quantity + ", total=" + total
+				+ "]";
+	}
+
+
+
+
 
 	public void getPoductlist() {
+	    
 		DataBaseConnection dataconnection=new DataBaseConnection();
 		con=dataconnection.getConnectionDetails();
         try {
