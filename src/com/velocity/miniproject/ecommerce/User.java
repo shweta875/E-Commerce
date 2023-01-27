@@ -83,7 +83,7 @@ public class User {
 				{
 					 ps1=rs.getString(1);
 					 System.out.println(ps1);
-					 System.out.println("ps1");
+					 //System.out.println("ps1");
 				}
 				
 				if(ps1.equalsIgnoreCase(ps))

@@ -24,7 +24,14 @@ public class MainTest {
          case 2:
         	 u.doLogin();
         	 p.getPoductlist();
-        	 
+        	 System.out.println();
+        	 System.out.println("---------------------------------------------------");
+        	 System.out.println("ProductList in Ascending order");
+        	 System.out.println("---------------------------------------------------");
+        	 System.out.println();
+        	 shc.purchaseProduct();
+        	// shc.addTocart();
+        	  
         	 break;
          case 3:
         	 a.adminLogin();

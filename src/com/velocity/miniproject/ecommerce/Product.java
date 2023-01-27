@@ -15,7 +15,8 @@ public class Product {
 		DataBaseConnection dataconnection=new DataBaseConnection();
 		con=dataconnection.getConnectionDetails();
         try {
-			prs=con.prepareStatement("select * from productlist");
+			prs=con.prepareStatement("select * from productlist ");
+			
 			ResultSet rs=prs.executeQuery();
 		       while(rs.next())
 			{
