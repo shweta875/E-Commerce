@@ -34,6 +34,27 @@ public class Product {
 				+ "]";
 	}
 
+	public void getproductListAscending()
+	{
+		DataBaseConnection dataconnection = new DataBaseConnection();
+		con = dataconnection.getConnectionDetails();
+		try {
+			prs = con.prepareStatement("select * from productlist order by product_name,price,quantity");
+			ResultSet rs = prs.executeQuery();
+			while (rs.next()) {
+				System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + ":" + "\t" + "price >>" + rs.getInt(4));
+				System.out.println(rs.getString(3));
+				System.out.println("---------------------------------------------------");
+				
+				//con.close();
+				//prs.close();
+	
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
 	public void getPoductlist() {
 
 		DataBaseConnection dataconnection = new DataBaseConnection();
@@ -46,6 +67,9 @@ public class Product {
 				System.out.println(rs.getString(3));
 				System.out.println("---------------------------------------------------");
 
+				//con.close();
+				//prs.close();
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -66,6 +90,9 @@ public class Product {
 				System.out.println("Quantity of Product :: " + rs.getInt(1));
 				System.out.println("---------------------------------------------------");
 
+				//con.close();
+				//prs.close();
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

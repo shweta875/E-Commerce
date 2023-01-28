@@ -23,9 +23,11 @@ public class MainTest {
 			grant_total = grant_total + p1.total;
 			continueShopping();
 		} else if (wish.equalsIgnoreCase("no")) {
-			System.out.println("Grand Total" + grant_total);
+			System.out.println("Grand Total==" + grant_total);
 			System.out.println("Thank u visit again");
-		} else {
+			
+			}
+		 else {
 			System.out.println("enter correct option ");
 			continueShopping();
 
@@ -55,6 +57,10 @@ public class MainTest {
 		case 2:
 			u.doLogin(); // press 2 for user login
 			p.getPoductlist(); // to show product list to user
+			System.out.println();
+			System.out.println("productlist display in ascending order");
+			System.out.println();
+			p.getproductListAscending();
 			mt.continueShopping(); // method call for shopping
 
 			break;

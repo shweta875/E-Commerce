@@ -35,6 +35,10 @@ public class ShoppingCart {
 
 			p1 = new Product(p_Id, store_price, userQty, total);
 			System.out.println(p1);
+			
+			//con.close();
+			//prs.close();
+			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch bloc
@@ -59,6 +63,7 @@ public class ShoppingCart {
 			}
 
 			remain_qty = store_qty - p1.quantity;
+			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch bloc
@@ -66,7 +71,8 @@ public class ShoppingCart {
 		}
 
 		return remain_qty;
-
+		
+		
 	}
 
 	public void storeHistory(String user) {
@@ -84,6 +90,9 @@ public class ShoppingCart {
 			prs.setInt(5, p1.total);
 
 			prs.execute();
+			
+			//con.close();
+			//prs.close();
 
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -102,6 +111,10 @@ public class ShoppingCart {
 			prs.setInt(1, qty);
 			prs.setInt(2, p1.productId);
 			prs.execute();
+			
+			//con.close();
+			//prs.close();
+			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch bloc

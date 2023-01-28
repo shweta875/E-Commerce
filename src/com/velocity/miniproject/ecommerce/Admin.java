@@ -46,9 +46,9 @@ public class Admin {
 				System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
 
 			}
-			con.close();
-			prs.close();
-
+			//con.close();
+			//prs.close();
+			
 		}
 
 		catch (Exception e) {
@@ -64,13 +64,15 @@ public class Admin {
 		DataBaseConnection dataconnection = new DataBaseConnection();
 		con = dataconnection.getConnectionDetails();
 		try {
-			prs = con.prepareStatement("select product_id,product_price,product_quantity,total"
-					+ "from purchaced_product" + "where (user_name=?)");
+			prs = con.prepareStatement("select * from purchaced_product where user_name=?");
 			prs.setString(1, name1);
 			ResultSet rs = prs.executeQuery();
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + "  " + rs.getInt(2) + "  " + rs.getInt(3) + "  " + rs.getInt(4));
 			}
+			//con.close();
+			//prs.close();
+			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch bloc

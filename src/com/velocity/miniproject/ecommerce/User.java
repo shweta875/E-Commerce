@@ -29,7 +29,7 @@ public class User {
 			prs.setString(5, userNumber);
 
 			int i = prs.executeUpdate();
-			System.out.println("Regestration Successfull..");
+			//System.out.println("Regestration Successfull..");
 
 			con.close();
 			prs.close();
@@ -83,7 +83,7 @@ public class User {
 			while (rs.next()) {
 				ps1 = rs.getString(1);
 				System.out.println(ps1);
-				System.out.println("ps1");
+				System.out.println();
 			}
 
 			if (ps1.equalsIgnoreCase(ps)) {
@@ -91,6 +91,10 @@ public class User {
 			} else {
 				System.out.println("enter correct password");
 			}
+			
+			con.close();
+			prs.close();
+			
 
 		} catch (Exception e) {
 			e.getStackTrace();
